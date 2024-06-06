@@ -42,7 +42,7 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
-    double toplamFiyat = fiyat * siparisAdedi; // Toplam fiyatı hesaplayalım
+    double toplamFiyat = fiyat * siparisAdedi;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.amber,
