@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Profile(loggedInUserId: 1, musteriId: 1), // Specify loggedInUserId here
+    Profile(loggedInUserId: 1, musteriId: 1),
   ];
 
   void _onItemTapped(int index) {
