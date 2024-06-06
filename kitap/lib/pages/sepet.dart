@@ -25,15 +25,10 @@ class _CartPageState extends State<CartPage> {
     MySql mySql = MySql();
     List<Map<String, dynamic>> fetchedItems =
         await mySql.getCartItems(widget.musteriId);
-
-    // Veritabanından alınan verileri kontrol ederek null değerler için düzeltmeler yapın
     for (var item in fetchedItems) {
       if (item['kitap_id'] == null) {
-        // kitap_id null ise, varsayılan bir değer atayın veya hata işleyin
-        // Örneğin: item['kitap_id'] = 0; veya uygun bir hata işleyicisi kullanın
       }
       if (item['adet'] == null) {
-        // adet null ise, varsayılan bir değer atayın veya hata işleyin
         item['adet'] = 1;
       }
     }
@@ -42,7 +37,7 @@ class _CartPageState extends State<CartPage> {
       setState(() {
         _isLoading = false;
         sepetItems =
-            fetchedItems; // Veritabanından alınan verileri sepetItems listesine atayın
+            fetchedItems;
       });
     }
   }
@@ -54,9 +49,7 @@ class _CartPageState extends State<CartPage> {
   }
 
   void completeOrder() async {
-  // Önce giriş yapılmış mı kontrol edelim
   if (Global.loggedInUserId != null) {
-    // Giriş yapan kullanıcının ID'sini kullanarak siparişi oluşturalım
     MySql mySql = MySql();
     try {
       for (var item in sepetItems) {
@@ -108,7 +101,6 @@ class _CartPageState extends State<CartPage> {
       fetchCartItems();
     }
   } else {
-    // Eğer giriş yapılmamışsa hata gösterelim
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text('Önce giriş yapmalısınız'),
