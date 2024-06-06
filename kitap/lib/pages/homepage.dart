@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const CartPage(musteriId: 1), // Sepet sayfasına yönlendirme
+                  builder: (context) => const CartPage(musteriId: 1),
                 ),
               );
             },
